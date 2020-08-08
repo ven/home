@@ -2,7 +2,6 @@
   <div class="h-screen w-screen flex flex-col">
     <!-- enter the konami code if you're cool! -->
     <div v-if="konami" class="absolute h-full w-full flex justify-center items-center">
-      <div class="absolute opacity-50 text-6xl text-red-600 text-white font-extrabold uppercase underline">Konami</div>
       <iframe
         class="w-screen h-screen"
         src="https://www.embed.com/app/arcade/asteroids.html"
@@ -14,12 +13,12 @@
       <div class="w-full title">
         <div class="sm:text-left text-center leading-snug">
           <div class="sm:text-5xl text-4xl font-bold">Hi, I'm Ven.</div>
-          <div class="sm:text-2xl text-xl font-base text-gray-300 tracking-tight subpixel-antialiased">
+          <div class="manrope sm:text-2xl text-xl font-base text-gray-300 tracking-wide subpixel-antialiased">
             17-year-old software developer.
           </div>
         </div>
         <div
-          class="mt-4 sm:px-0 px-6 flex flex-wrap sm:justify-start justify-center text-indigo-200 overflow-hidden tracking-wider font-medium"
+          class="manrope mt-4 sm:px-0 px-6 flex flex-wrap sm:justify-start justify-center text-indigo-200 overflow-hidden tracking-wide font-medium"
         >
           <a href="https://github.com/ven" target="_blank" class="flex items-center mr-5 hover:text-indigo-300 mt-2">
             <font-awesome-icon class="mr-2" :icon="['fab', 'github']" />
@@ -52,15 +51,14 @@
         </div>
       </div>
     </div>
-    <div class="relative w-full flex justify-center items-center">
-      <div
-        v-if="!konami"
-        class="text-white p-8 absolute font-medium bottom-0 lg:right-0 text-green-500 text-sm opacity-50 fadeIn"
-      >
-        <font-awesome-icon class="mr-1" :icon="['fab', 'spotify']" /> Listening to
-        <span class="italic">{{ lastFM.recenttracks.track[0].artist['#text'] }}</span> on Spotify
+    <transition name="fade">
+      <div v-if="lastFM && !konami" class="relative w-full flex justify-center items-center">
+        <div class="manrope text-white p-8 absolute font-bold bottom-0 lg:right-0 text-green-500 text-sm opacity-50">
+          <font-awesome-icon class="mr-1" :icon="['fab', 'spotify']" /> Listening to
+          <span class="italic">{{ lastFM.recenttracks.track[0].artist['#text'] }}</span> on Spotify
+        </div>
       </div>
-    </div>
+    </transition>
   </div>
 </template>
 
@@ -146,20 +144,15 @@ export default {
   }
 }
 
-@keyframes fadeIn {
-  0% {
-    opacity: 0%;
-  }
-  100% {
-    opacity: 50%;
-  }
-}
-
 .title {
   animation: 1.5s cubic-bezier(0.22, 1, 0.36, 1) 0s 1 slideInFromLeft;
 }
 
-.fadeIn {
-  animation: 2s cubic-bezier(0.22, 1, 0.36, 1) 0s 1 fadeIn;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  opacity: 0;
 }
 </style>

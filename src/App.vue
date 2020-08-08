@@ -14,4 +14,7 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
 }
+.manrope {
+  font-family: 'Manrope', sans-serif;
+}
 </style>
