@@ -100,7 +100,7 @@ export default {
         this.lastFM = response.data;
         this.loading = false;
       })
-      .catch(e => console.error(e));
+      .catch(e => (this.loading = false));
   },
   methods: {
     reset() {
