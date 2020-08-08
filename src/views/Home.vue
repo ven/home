@@ -104,8 +104,19 @@ export default {
         this.loading = false;
       })
       .catch(e => (this.loading = false));
+
+    setInterval(this.updateSpotify, 5000);
   },
   methods: {
+    updateSpotify() {
+      axios
+        .get(
+          'https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=venoras&api_key=96942f94e74b8ab4ae1b96534da87f00&format=json&limit=1',
+        )
+        .then(response => {
+          this.lastFM = response.data;
+        });
+    },
     reset() {
       Object.keys(this.isChecked).forEach(k => {
         this.isChecked[k] = false;
