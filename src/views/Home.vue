@@ -53,7 +53,9 @@
     </div>
     <transition name="fade">
       <div v-if="lastFM && !konami" class="relative w-full flex justify-center items-center">
-        <div class="manrope text-white p-8 absolute font-bold bottom-0 lg:right-0 text-green-500 text-sm opacity-50">
+        <div
+          class="manrope text-white p-8 absolute font-bold bottom-0 lg:right-0 text-green-500 text-sm opacity-50 text-center"
+        >
           <font-awesome-icon class="mr-1" :icon="['fab', 'spotify']" /> Listening to
           <span class="italic"
             >{{ lastFM.recenttracks.track[0].artist['#text'] }} - {{ lastFM.recenttracks.track[0].name }}
