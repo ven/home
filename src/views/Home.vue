@@ -14,7 +14,7 @@
         <div class="sm:text-left text-center leading-snug">
           <div class="sm:text-5xl text-4xl font-bold">Hi, I'm Ven.</div>
           <div class="manrope sm:text-2xl text-xl font-base text-gray-300 tracking-wide subpixel-antialiased">
-            17-year-old software developer.
+            18-year-old software developer.
           </div>
         </div>
         <div
