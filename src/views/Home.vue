@@ -36,9 +36,9 @@
             <font-awesome-icon class="mr-2" :icon="['fab', 'discord']" />
             <div class="text-xs">ven#9999</div>
           </a>
-          <a href="mailto:admin@veno.dev" target="_blank" class="flex items-center hover:text-indigo-300 mt-2">
+          <a href="mailto:v@ven.earth" target="_blank" class="flex items-center hover:text-indigo-300 mt-2">
             <font-awesome-icon class="mr-2" :icon="['fa', 'envelope']" />
-            <div class="text-xs">admin@veno.dev</div>
+            <div class="text-xs">v@ven.earth</div>
           </a>
         </div>
         <div v-show="false" class="mt-4 sm:px-0 px-6 flex flex-wrap sm:justify-start justify-center text-sm opacity-75">
